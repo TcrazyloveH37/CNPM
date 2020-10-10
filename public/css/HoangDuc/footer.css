@@ -1,20 +1,42 @@
-*{
-    margin: 0;
-    padding: 0;
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+.column {
+    float: left;
+    width: 20%;
+    margin-bottom: 16px;
+    padding: 0 8px;
 }
 
-header{
-    width: 100%;
-    height: 150px;
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
 }
 
-main{
-    height: 1000px;
-    width: 100%;
-    background-color: black;
+.about-section {
+    padding: 30px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
 }
 
-footer{
-    width: 100%;
-    height: 150px;
+.container {
+    padding: 0 16px;
+}
+
+.container::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
 }
