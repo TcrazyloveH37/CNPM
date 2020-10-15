@@ -1,22 +1,17 @@
-.container {
-  background: blue;
-  width: 200px;
-  text-align: left;
-}
-.containet5 {
+footer .container {
+  padding: 10px;
+  background: rgb(54, 54, 243);
   flex-grow: 1;
-  width: 500px;
-}
-.bigone {
-  text-align: right;
-  margin-left: 20px;
-  margin-top: 10px;
-  margin-right: 20px;
-}
-.bigone {
-  padding: 5px;
-  max-width: 1000px;
-  max-height: 1000px;
+  text-align: left;
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+
+.bigone {
+  display: flex;
+  height: 100%;
+  align-items: center;
 }
