@@ -1,42 +1,22 @@
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-.column {
-    float: left;
-    width: 20%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
-}
-
-.about-section {
-    padding: 30px;
-    text-align: center;
-    background-color: #474e5d;
-    color: white;
-}
-
 .container {
-    padding: 0 16px;
+  background: blue;
+  width: 200px;
+  text-align: left;
 }
-
-.container::after,
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
+.containet5 {
+  flex-grow: 1;
+  width: 500px;
 }
-
-
-@media screen and (max-width: 650px) {
-    .column {
-        width: 100%;
-        display: block;
-    }
+.bigone {
+  text-align: right;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+.bigone {
+  padding: 5px;
+  max-width: 1000px;
+  max-height: 1000px;
+  display: flex;
+  flex-direction: row;
 }
