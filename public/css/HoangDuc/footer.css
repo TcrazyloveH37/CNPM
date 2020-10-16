@@ -1,6 +1,6 @@
 footer .container {
   padding: 10px;
-  background: rgb(54, 54, 243);
+  background: rgb(255, 255, 255);
   flex-grow: 1;
   text-align: left;
   height: 100%;
@@ -8,7 +8,6 @@ footer .container {
   flex-direction: column;
   justify-content: space-evenly;
 }
-
 
 .bigone {
   display: flex;
