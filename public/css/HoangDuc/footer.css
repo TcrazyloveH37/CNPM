@@ -6,7 +6,10 @@ footer .container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  align-items: flex-start;
+  line-height: 1.5;
+  box-sizing: border-box;
 }
 
 .bigone {
@@ -14,3 +17,10 @@ footer .container {
   height: 100%;
   align-items: center;
 }
+
+footer .container1 {
+ flex-basis: 150px;
+}
+footer .container2 {
+  flex-basis: 150px;
+ }
