@@ -1,0 +1,61 @@
+header .navbar{
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+header .navbar a:hover{
+    background-color: black;
+    color: red;
+}
+
+header .navbar-search{
+    width: 60%;
+}
+
+header .link-home {
+    color: blue;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bolder;
+    padding: 10px;
+    margin: 10px;
+}
+
+header .search-item{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: none;
+    border: 2px solid lightblue;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    font-size: 20px;
+}
+
+header .icon-search{
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    margin: none;
+    font-size: 20px;
+}
+
+header .login-register{
+    background-color: gray;
+    color: blue;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+}
+
+header .cart{
+    background-color: gray;
+    color: blue;
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+}
