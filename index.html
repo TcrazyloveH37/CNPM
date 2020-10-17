@@ -1,99 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/all.min.css">
-    <link rel="stylesheet" href="./public/css/base.css">
-    <link rel="stylesheet" href="./public/css/Kien/Kien.css">
-    <link rel="stylesheet" href="./public/css/HoangDuc/footer.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/css/all.min.css" />
+    <link rel="stylesheet" href="./public/css/base.css" />
+    <link rel="stylesheet" href="./public/css/Kien/Kien.css" />
+    <link rel="stylesheet" href="./public/css/HoangDuc/footer.css" />
+    <link rel="stylesheet" href="./public/css/Kien/clickDropDown.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="navbar">
-            <span class="navbar-home">
-                <a href="#" class="link-home">
-                    Team Seven
-                </a>
-            </span>
-            <span class="navbar-search">
-                <form action="">
-                    <input type="text" class="search-item" placeholder="Search item">
-                    <button class="icon-search">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-            </span>
-            <span class="icon">
-                <span class="login-register">
-                    <a href = '#' class="fas fa-user">
-                    </a>
-                </span>
-                <span class="cart">
-                    <a href = '#' class="fas fa-cart-plus"></a>
-                </span>
-
-            </span>
-
-        </div>
+      <div class="navbar">
+        <span class="navbar-home">
+          <a href="#" class="link-home"> Team Seven </a>
+        </span>
+        <span class="navbar-search">
+          <form action="">
+            <input type="text" class="search-item" placeholder="Search..." />
+            <button class="icon-search">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </span>
+        <span class="icon">
+          <span class="login-register">
+            <div class="dropdown">
+              <button onclick="clickDropDown()" class="dropbtn">
+                <i href="#" class="fas fa-user"></i>
+              </button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="#">Tên</a>
+                <a href="#">Thông Tin</a>
+                <a href="#">Đăng Xuất</a>
+              </div>
+            </div>
+          </span>
+          <span class="cart">
+            <div class="dropdown">
+              <button onclick="clickDropDown2()" class="dropbtn">
+                <i href="#" class="fas fa-cart-plus"></i>
+              </button>
+              <div id="myDropdown-2" class="dropdown-content-2">
+              </div>
+            </div>
+          </span>
+        </span>
+      </div>
     </header>
 
     <main></main>
 
     <footer>
-        <div class ="bigone">
-            <div class="container container1">
-                        <h3>Hỗ trợ khách hàng</h3>
-                        <p>Thẻ ưu đãi</p>
-                        <p>Trung tâm bảo hành</p>
-                        <p>Thanh toán và giao hàng</p>
-                        <p>Dịch vụ sửa chữa và bảo trì</p>
-            </div>
-            <div class="container container2">
-                <h3>Chính sách mua hàng và bảo hành</h3>
-                <p>Quy định chung</p>
-                <p>Chính sách bảo mật thông tin</p>
-                <p>Chính sách bảo hành</p>
-                <p>Chính sách đổi trả và hoàn tiền</p>
-            </div>
-            <div class="container container3">
-                <h3>Thông tin về chúng tôi</h3>
-                <p>Giới thiệu về Team</p>
-                <p>Thông tin liên hệ</p>
-                <p>Hỏi đáp</p>
-                <p>Tuyển dụng</p>
-            </div>
-            <div class="container container4">
-                <h3>Cộng đồng Team</h3>
-                <p><i class="fab fa-facebook"></i>&#160;  Fanpage</p>
-                <p><i class="fab fa-youtube"></i>&#160;  Youtube</p>
-                <p><i class="fas fa-phone-volume"></i>&#160; Số điện thoại</p>
-                <p><i class="fab fa-facebook-messenger"></i>&#160; Messenger</p>
-            </div>
-        
+      <div class="bigone">
+        <div class="container container1">
+          <h3>Hỗ trợ khách hàng</h3>
+          <p>Thẻ ưu đãi</p>
+          <p>Trung tâm bảo hành</p>
+          <p>Thanh toán và giao hàng</p>
+          <p>Dịch vụ sửa chữa và bảo trì</p>
         </div>
-        <div class ="bigone">
-            <div class="container container1">
-                        <h3>Phương thức thanh toán</h3>
-                        <p><i class="fas fa-qrcode"></i> &#160; QR Code </p>
-                        <p><i class="far fa-money-bill-alt"></i> Tiền mặt </p>
-                        <p><i class="far fa-clock"></i>&#160; Trả góp </p>
-                        <p><i class="fas fa-credit-card"></i>&#160;&#160;Internet Banking </p>
-            </div>
-            <div class="container container2">
-                <h3>Email liên hệ</h3>
-                <p>Hỗ trợ Khách hàng:</p>
-                <p>Liên hệ báo giá:</p>
-                <p>Liên hệ bảo hành</p>
-                <p>Hợp tác phát triển:</p> 
-            </div>
-            <div class="container container3">
-                <h3>Danh sách các ngân hàng thanh toán online</h3><br>
-                <img src="./public/css/HoangDuc/image.png" alt="danh sach ngan hang">
-            </div>
+        <div class="container container2">
+          <h3>Chính sách mua hàng và bảo hành</h3>
+          <p>Quy định chung</p>
+          <p>Chính sách bảo mật thông tin</p>
+          <p>Chính sách bảo hành</p>
+          <p>Chính sách đổi trả và hoàn tiền</p>
         </div>
+        <div class="container container3">
+          <h3>Thông tin về chúng tôi</h3>
+          <p>Giới thiệu về Team</p>
+          <p>Thông tin liên hệ</p>
+          <p>Hỏi đáp</p>
+          <p>Tuyển dụng</p>
+        </div>
+        <div class="container container4">
+          <h3>Cộng đồng Team</h3>
+          <p><i class="fab fa-facebook"></i>&#160; Fanpage</p>
+          <p><i class="fab fa-youtube"></i>&#160; Youtube</p>
+          <p><i class="fas fa-phone-volume"></i>&#160; Số điện thoại</p>
+          <p><i class="fab fa-facebook-messenger"></i>&#160; Messenger</p>
+        </div>
+      </div>
+      <div class="bigone">
+        <div class="container container1">
+          <h3>Phương thức thanh toán</h3>
+          <p><i class="fas fa-qrcode"></i> &#160; QR Code</p>
+          <p><i class="far fa-money-bill-alt"></i> Tiền mặt</p>
+          <p><i class="far fa-clock"></i>&#160; Trả góp</p>
+          <p><i class="fas fa-credit-card"></i>&#160;&#160;Internet Banking</p>
+        </div>
+        <div class="container container2">
+          <h3>Email liên hệ</h3>
+          <p>Hỗ trợ Khách hàng:</p>
+          <p>Liên hệ báo giá:</p>
+          <p>Liên hệ bảo hành</p>
+          <p>Hợp tác phát triển:</p>
+        </div>
+        <div class="container container3">
+          <h3>Danh sách các ngân hàng thanh toán online</h3>
+          <br />
+          <img
+            src="./public/css/HoangDuc/image.png"
+            alt="danh sach ngan hang"
+          />
+        </div>
+      </div>
     </footer>
-</body>
+
+    <script src="./public/js/Kien/clickDropDown.js"></script>
+  </body>
 </html>
