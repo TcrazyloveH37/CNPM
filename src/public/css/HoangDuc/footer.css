@@ -1,0 +1,28 @@
+
+
+.footer {
+  padding: 20px 0 20px 20px;
+  display: flex;
+  height: 100%;
+  justify-content: flex-end ;
+  line-height: 1.5;
+}
+
+.footer .footer-item {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.footer-item-3-g1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.footer-item-3-g1-item{
+  flex-grow: 1;
+}
+
+
