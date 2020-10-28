@@ -11,6 +11,19 @@ body > .sign-up {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border: 1px solid black;
+    box-shadow: 0px 0px 10px 1px grey;
+    border-radius: 10px;
+    background-image: linear-gradient(to right bottom, #EAD6EE, #A0F1EA);
+}
+
+body > .sign-up > form > h1{
+    outline: none;
+    user-select: none;
+}
+
+body > .sign-up > sign-up-item{
+    flex-grow: 1;
 }
 
 body > .sign-up > form {
@@ -18,13 +31,40 @@ body > .sign-up > form {
     width: inherit;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 body > .sign-up > form > .form-group {
-    height: inherit;
-    width: inherit;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+body > .sign-up > form > .form-group > input {
+    height: 40px;
+    width: 260px;
+    font-size: 16px;
+    margin-top: 5px;
+    border-radius: 50px 20px;
+    padding: 0 20px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body > .sign-up > form > .form-group > label {
+    user-select: none;
+}
+
+body > .sign-up > form >  button {
+    height: 40px;
+    width: 260px;
+    font-size: 14px;
+    border-radius: 50px 20px;
+    background-image: linear-gradient(to right bottom, #EAD6EE, #A0F1EA);
+    outline: none;
+}
+
+body > .sign-up > form >  button:active{
+    background-image: linear-gradient(to right bottom, #A0F1EA, #EAD6EE);
 }

@@ -1,0 +1,41 @@
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+
+main  article {
+    height: 200px;
+    width: 200px;
+    margin: 40px;
+}
+
+main article a{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    align-items: center;
+}
+
+main  article  .card__img{
+    height: 80%;
+    width: 100%;
+}
+
+main  article img {
+    height: inherit;
+    width: inherit;
+}
+
+main  article .card__name {
+    color: orange;
+}
+
+main  article .card__price {
+    color: whitesmoke;
+}

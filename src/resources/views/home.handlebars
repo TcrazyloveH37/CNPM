@@ -1,9 +1,22 @@
-<ul>
-    {{#each products}}
-    <li>
-        {{#each this}}
-        {{this.name}}
+<main class="main">
+        {{#each products}}
+            
+                    <article class="card">
+                        <a href="{{this.image}}" target="_blank">
+                            <div class="card__img">
+                                <img src="{{this.image}}" alt="{{this.description}}">
+                            
+                            </div>
+                            
+                            <div class="card__name">
+                                {{this.name}}
+                            </div>
+                            
+                            <div class="card__price">
+                                {{this.price}}
+                            </div>
+                        </a>
+                    </article>
+
         {{/each}}
-    </li>
-    {{/each}}
-</ul>
+</main>

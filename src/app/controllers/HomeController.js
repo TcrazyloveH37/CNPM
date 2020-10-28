@@ -4,7 +4,12 @@ class HomeController {
   // [get], /
   index(req, res, next) {
     Product.find({})
-      .then(products => res.render('home', { products }))
+      .then(products => {
+
+        products = products.map(product => product.toObject());
+
+        res.render('home', { products });
+      })
       .catch(next);
   }
 }
