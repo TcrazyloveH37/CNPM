@@ -1,22 +1,28 @@
-<main class="main">
-        {{#each products}}
-            
-                    <article class="card">
-                        <a href="{{this.image}}" target="_blank">
-                            <div class="card__img">
-                                <img src="{{this.image}}" alt="{{this.description}}">
-                            
-                            </div>
-                            
-                            <div class="card__name">
-                                {{this.name}}
-                            </div>
-                            
-                            <div class="card__price">
-                                {{this.price}}
-                            </div>
-                        </a>
-                    </article>
+<head>
+    <link rel="stylesheet" href="./css/home.css" />
+</head>
 
+<body>
+    <main class="main">
+        {{#each products}}
+    
+        <article class="card">
+            <a href="/detailProduct/{{this.slug}}" target="_blank">
+                <div class="card__img">
+                    <img src="{{this.image}}" alt="{{this.description}}">
+    
+                </div>
+    
+                <div class="card__name">
+                    {{this.name}}
+                </div>
+    
+                <div class="card__price">
+                    {{this.price}}
+                </div>
+            </a>
+        </article>
+    
         {{/each}}
-</main>
+    </main>
+</body>

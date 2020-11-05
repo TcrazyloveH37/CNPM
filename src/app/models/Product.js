@@ -12,6 +12,7 @@ const Product = new Schema({
   price: { type: Number, default: 5000 },
   createAt: { type: Date, default: Date.now() },
   updateAt: { type: Date, default: Date.now() },
+  slug: { type: String, default: '' }
 });
 
 module.exports = mongoose.model('Product', Product);
