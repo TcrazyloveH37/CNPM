@@ -1,18 +1,19 @@
-main {
+.main-homepage {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: stretch;
+    height: auto;
 }
 
 
-main  article {
+.main-homepage  article {
     height: 200px;
     width: 200px;
     margin: 40px;
 }
 
-main article a{
+.main-homepage article a{
     height: 100%;
     width: 100%;
     text-decoration: none;
@@ -22,20 +23,20 @@ main article a{
     align-items: center;
 }
 
-main  article  .card__img{
+.main-homepage  article  .card__img{
     height: 80%;
     width: 100%;
 }
 
-main  article img {
+.main-homepage  article img {
     height: inherit;
     width: inherit;
 }
 
-main  article .card__name {
+.main-homepage  article .card__name {
     color: orange;
 }
 
-main  article .card__price {
+.main-homepage  article .card__price {
     color: whitesmoke;
 }

@@ -10,6 +10,17 @@ class HomeController {
       })
       .catch(next);
   }
+
+  //[GET] /:slug
+  showProduct(req, res, next) {
+    Product.findOne({ slug: req.params.slug })
+      .then(product => {
+        res.render('showProduct');
+      })
+      .catch(next => {
+        console.log("err");
+      });
+  }
 }
 
 module.exports = new HomeController();
