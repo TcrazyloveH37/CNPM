@@ -1,97 +1,110 @@
-.main-homepage{
-    width: 100%;  
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    overflow: hidden;
-    flex-wrap: wrap;
+.main-homepage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  flex-wrap: wrap;
 }
 
-.main-homepage > .home-card{
-    height: 200px;
-    margin: 20px 20px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    box-shadow: 1px 1px 10px 0px rgba(94, 91, 91, 0.8);
-    text-align: center;
+.main-homepage > .home-card {
+  height: 200px;
+  margin: 20px 20px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  box-shadow: 1px 1px 10px 0px rgba(94, 91, 91, 0.8);
+  text-align: center;
+  transition: all 0.4s ease-out;
 }
 
-.main-homepage  > .home-card > .home-card-image{
-    width: 100%;
-    height: 100px;
+.main-homepage > .home-card:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 1px 10px 0px rgba(94, 91, 91, 0.6),
+                1px 1px 15px 0px rgba(94, 91, 91, 0.6),
+                1px 1px 20px 0px rgba(94, 91, 91, 0.6),
+                1px 1px 25px 0px rgba(94, 91, 91, 0.6),
+                1px 1px 30px 0px rgba(94, 91, 91, 0.6);
 }
-.main-homepage  > .home-card > .home-card-image > img
-{
-    background-size: contain;
+
+.main-homepage > .home-card > .home-card-image {
+  width: 100%;
+  height: 110px;
+}
+
+.main-homepage > .home-card > .home-card-image > img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
 }
 
 .main-homepage  > .home-card > .home-card-name-price{
     color:white;
-    height: 60px;
-}
-
-
-
-
-
-
-
-
-
-
-.home-card-status{
-    overflow: hidden;
-    box-sizing: border-box;
+    height: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    background-image: linear-gradient(125deg, #f3e0f6 0%, #fff 80%);
+    justify-content: space-evenly;
+    font-family: 'Roboto', sans-serif;
 }
 
-.home-card-status > .home-btn-cart{
-    width: 200px;
-    height: 40px;
-    cursor: pointer;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    background: #fdbb2d;
-    color: black;
-    font-size: 13px;
-    font-weight: bolder;  
+
+
+
+
+.home-card-status {
+  height: 40px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(125deg, #f3e0f6 0%, #fff 80%);
+}
+
+.home-card-status > .home-btn-cart {
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fdbb2d;
+  color: black;
+  font-size: 13px;
+  font-weight: bolder;
 }
 
 .home-card-status > .home-btn-cart > i {
-    position: absolute;
-    margin-left: 90px;
-    column-fill: transparent;
-    transition: 0.4s;
-    color: transparent;
-    visibility: hidden;
+  position: absolute;
+  margin-left: 90px;
+  column-fill: transparent;
+  transition: 0.4s;
+  color: transparent;
+  visibility: hidden;
 }
 
-.home-card-status > .home-btn-cart > span{
-    transition: 0.4s;
+.home-card-status > .home-btn-cart > span {
+  transition: 0.4s;
 }
 
-.home-card-status > .home-btn-cart:hover > span{
-    margin-right: 30px;   
+.home-card-status > .home-btn-cart:hover > span {
+  margin-right: 30px;
 }
 
-.home-card-status > .home-btn-cart:hover > i{
-    margin-left: 45px;
-    column-fill: white;
-    color: black;
-    visibility: visible;
+.home-card-status > .home-btn-cart:hover > i {
+  margin-left: 45px;
+  column-fill: white;
+  color: black;
+  visibility: visible;
 }
 
-.home-card-status > .home-btn-cart:focus{
-    outline: none;
+.home-card-status > .home-btn-cart:focus {
+  outline: none;
 }
-
-
