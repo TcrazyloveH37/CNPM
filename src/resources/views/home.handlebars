@@ -1,3 +1,23 @@
 <main class="main-homepage">
-    
+    {{#each products}}
+
+    <div class="home-card">
+        <a href="/{{this.slug}}" target="_blank">
+            <div class="home-card-image">
+                <img class="home-card-image" src="{{this.image}}" alt="{{this.description}}">
+            </div>
+            <div class="home-card-name-price">
+                <span class="home-card-name-price-name">{{this.name}}</span>
+                <h2 class="home-card-name-price-price">{{this.price}}</h2>
+            </div>
+        </a>
+        <div class="home-card-status">
+              <button class="home-btn-cart">
+                  <span>Chọn Mua</span>
+                   <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+              </button>
+        </div>
+    </div>  
+
+    {{/each}}
 </main> 
