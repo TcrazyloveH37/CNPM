@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   background: rgba(0,0,0,0.7);
   padding: 0 100px ;
   box-sizing: border-box;
@@ -26,7 +26,7 @@
 .navbar-header > nav .brand{
   float: left;
   height: 100%;
-  line-height: 80px;
+  line-height: 60px;
   user-select: none;
 }
 
@@ -37,6 +37,7 @@
 }
 
 .navbar-header > nav  ul{
+  font-size: 13px;
   float: right;
   display: flex;
   list-style: none;
@@ -54,8 +55,8 @@
 .navbar-header > nav  ul  li  a{
   position: relative;
   display: block;
-  height: 80px;
-  line-height: 80px;
+  height: 60px;
+  line-height: 60px;
   padding: 0px 20px;
   box-sizing: border-box;
   color: #fff;
@@ -101,7 +102,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 80px;
+  top: 60px;
   visibility: hidden;
 }
 
@@ -112,17 +113,17 @@
 
 .navbar-nav > ul ul > li:nth-child(1){
   position: relative;
-  top:-80px;
+  top:-60px;
 }
 
 .navbar-nav > ul ul > li:nth-child(2){
   position: relative;
-  top:-160px;
+  top:-120px;
 }
 
 .navbar-nav > ul ul > li:nth-child(3){
   position: relative;
-  top:-240px;
+  top:-180px;
 }
 
 .navbar-header > .navbar-nav > ul > .nav-drop-down:hover ul > li
