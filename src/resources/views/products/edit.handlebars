@@ -1,0 +1,7 @@
+<form action="/products/{{product._id}}?_method=PUT" method="POST" style="margin-top: 100px;">
+    <input type="text" name="name" id="" value="{{product.name}}">
+    <textarea name="description">{{product.description}}</textarea>
+    <input type="text" name="image" id="" value="{{product.image}}">
+    <input type="text" name="price" id="" value="{{product.price}}">
+    <button type="submit">Cập Nhật</button>
+</form>

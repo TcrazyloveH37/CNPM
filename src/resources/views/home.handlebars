@@ -4,7 +4,7 @@
 <main class="main-homepage">
     {{#each products}}
 
-    <div class="home-card">
+    <div class="home-card" id={{this._id}}>
         <a href="/products/{{this.slug}}" target="_blank" class="home-card-image">
             <img class="home-card-image" src="{{this.image}}" alt="{{this.description}}">
         </a>
@@ -14,7 +14,7 @@
         </a>
         <div class="home-card-status">
             <button class="home-btn-cart">
-                <span>Chọn Mua</span>
+                <span>Add To Cart</span>
                 <i class="fa fa-shopping-basket" aria-hidden="true"></i>
             </button>
         </div>

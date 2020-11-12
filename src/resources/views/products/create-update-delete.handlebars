@@ -1,0 +1,35 @@
+<main class="crud-product">
+    <div class="add-product">
+        <form action="/products/store" method="POST" style="margin-top: 100px;">
+            <input type="text" name="name" id="">
+            <input type="text" name="description" id="">
+            <input type="text" name="image" id="">
+            <input type="text" name="price" id="">
+            <button type="submit">Them San Pham</button>
+        </form>
+    </div>
+    
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Price</th>
+        </tr>
+        {{#each products}}
+        <tr>
+            <td>{{sum @index 1}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.description}}</td>
+            <td><img src="{{this.image}}" alt="" style="height: 30px; width:30px;"></td>
+            <td>{{this.price}}</td>
+            <td>
+                <a href="/products/edit/{{this._id}}">Sửa</a>
+                <a href="#dialog-modal">Xóa</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+
+</main>

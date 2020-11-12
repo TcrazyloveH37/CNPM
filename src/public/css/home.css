@@ -89,7 +89,7 @@ section.img-background{
   font-weight: bolder;
 }
 
-.home-card-status > .home-btn-cart > i {
+.home-card-status > .home-btn-cart >  .fa {
   position: absolute;
   margin-left: 90px;
   column-fill: transparent;
@@ -106,11 +106,19 @@ section.img-background{
   margin-right: 30px;
 }
 
-.home-card-status > .home-btn-cart:hover > i {
+.home-card-status > .home-btn-cart:hover > .fa {
   margin-left: 45px;
   column-fill: white;
   color: black;
   visibility: visible;
+}
+
+.home-card-status > .home-btn-cart:hover  .fa:hover {
+  transform: scale(1.2);
+}
+
+.home-card-status > .home-btn-cart:hover  .fa:active {
+  transform: scale(0.9);
 }
 
 .home-card-status > .home-btn-cart:focus {
