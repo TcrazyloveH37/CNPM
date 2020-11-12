@@ -1,11 +1,14 @@
+<section class="img-background"></section>
+
+
 <main class="main-homepage">
     {{#each products}}
 
     <div class="home-card">
-        <a href="/{{this.slug}}" target="_blank" class="home-card-image">
+        <a href="/products/{{this.slug}}" target="_blank" class="home-card-image">
             <img class="home-card-image" src="{{this.image}}" alt="{{this.description}}">
         </a>
-        <a href="/{{this.slug}}" target="_blank" class="home-card-name-price">
+        <a href="/products/{{this.slug}}" target="_blank" class="home-card-name-price">
             <span class="home-card-name-price-name">{{this.name}}</span>
             <h4 class="home-card-name-price-price">{{this.price}}$</h4>
         </a>

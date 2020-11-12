@@ -1,3 +1,11 @@
+section.img-background{
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  background: url(https://www.holoniq.com/wp-content/uploads/2019/01/E-learning-and-education-520374378_1369x770.jpeg?fbclid=IwAR26jNJUKMT8dmjDj7-BqImmpvxDnk2OlDEK7VnXPvEC9Yx3Y_vbqWtSXnc);
+  background-size: cover;
+}
+
 .main-homepage {
   width: 100%;
   display: flex;

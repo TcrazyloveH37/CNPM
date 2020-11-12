@@ -21,7 +21,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^5.1.0",
-    "mongoose": "^5.10.9"
+    "mongoose": "^5.10.9",
+    "mongoose-slug-generator": "^1.0.4"
   },
   "devDependencies": {
     "husky": "^4.3.0",

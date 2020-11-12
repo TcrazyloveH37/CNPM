@@ -15,6 +15,7 @@ const hbs = exphbs.create({
   defaultLayout: 'index',
 });
 app.use(express.static(path.join(__dirname, '/public')));
+app.use("/products",express.static(path.join(__dirname, '/public')));
 //----------------------------------------------------------------
 // HTTP logger
 //app.use(morgan("combined"));

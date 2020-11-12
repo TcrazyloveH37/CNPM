@@ -1,11 +1,3 @@
-.navbar-header > section.img-background{
-  width: 100%;
-  height: 100vh;
-  box-sizing: border-box;
-  background: url(https://www.holoniq.com/wp-content/uploads/2019/01/E-learning-and-education-520374378_1369x770.jpeg?fbclid=IwAR26jNJUKMT8dmjDj7-BqImmpvxDnk2OlDEK7VnXPvEC9Yx3Y_vbqWtSXnc);
-  background-size: cover;
-}
-
 .navbar-header > nav{
   font-family: 'Roboto', sans-serif;
   position: fixed;
@@ -124,6 +116,11 @@
 .navbar-nav > ul ul > li:nth-child(3){
   position: relative;
   top:-180px;
+}
+
+.navbar-nav > ul ul > li:nth-child(4){
+  position: relative;
+  top:-240px;
 }
 
 .navbar-header > .navbar-nav > ul > .nav-drop-down:hover ul > li
