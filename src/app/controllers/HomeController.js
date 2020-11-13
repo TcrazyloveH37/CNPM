@@ -6,7 +6,7 @@ class HomeController {
   index(req, res, next) {
     Product.find({})
       .then(products => {
-        res.render('home', { products: multipleMongooseToObject(products) });
+        res.render('home', { products: multipleMongooseToObject(products) , style: ['home.css']});
       })
       .catch(next);
   }

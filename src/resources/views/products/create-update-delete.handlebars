@@ -8,7 +8,7 @@
             <button type="submit">Them San Pham</button>
         </form>
     </div>
-    
+
     <table>
         <tr>
             <th>STT</th>
@@ -18,18 +18,82 @@
             <th>Price</th>
         </tr>
         {{#each products}}
-        <tr>
+        <tr class="{{this._id}}">
             <td>{{sum @index 1}}</td>
             <td>{{this.name}}</td>
             <td>{{this.description}}</td>
             <td><img src="{{this.image}}" alt="" style="height: 30px; width:30px;"></td>
             <td>{{this.price}}</td>
             <td>
-                <a href="/products/edit/{{this._id}}">Sửa</a>
-                <a href="#dialog-modal">Xóa</a>
+                <a href="#dialog-modal" data-id="{{this._id}}" class="get-id-edit">Sửa</a>
+                <a href="#dialog-modal" data-id="{{this._id}}" class="get-id-delete">Xóa</a>
             </td>
         </tr>
         {{/each}}
     </table>
 
+
 </main>
+
+<div id="dialog-modal">
+    <a href="#" class="dialog-modal-close-out"></a>
+    <div class="dialog-modal-body">
+        <a class="dialog-modal-close fa fa-times-circle" href="#"></a>
+        <h3>Mày Muốn xóa</h3>
+        <a href="#">NO</a>
+        <a id="delete-products-comfirm">YES</a>
+    </div>
+</div>
+
+
+<form name="delete-product-form" method="POST"></form>
+
+<script>
+    let arrDelete = document.querySelectorAll("table tr > td > .get-id-delete");
+    let arrEdit = document.querySelectorAll("table tr > td > .get-id-edit");
+    let Form = document.forms['delete-product-form'];
+    let btnYES = document.getElementById('delete-products-comfirm');
+    let idSlug;
+
+    for (let i = 0; i < arrDelete.length; i++) {
+        arrDelete[i].addEventListener('click', () => {
+            idSlug = arrDelete[i].getAttribute('data-id');
+            btnYES.addEventListener('click', () => {
+                Form.action = '/products/' + idSlug + '?_method=DELETE';
+                Form.submit();
+            });
+        });
+        arrEdit[i].addEventListener('click', () => {
+            idSlug = arrDelete[i].getAttribute('data-id');
+
+            let getID = document.getElementsByClassName(idSlug)[0].querySelectorAll('td');
+
+            console.log(getID);
+
+            let name = document.createElement("input");
+            name.name = 'name';
+            name.value = getID[1].innerHTML;
+            let description = document.createElement("input");
+            description.name = 'description';
+            description.value = getID[2].innerHTML;
+            let image = document.createElement("input");
+            image.name = 'image';
+            image.value = getID[3].querySelector('img').getAttribute('src');
+            let price = document.createElement("input");
+            price.name = 'price';
+            price.value = getID[4].innerHTML;
+
+            Form.appendChild(name);
+            Form.appendChild(description);
+            Form.appendChild(image);
+            Form.appendChild(price);
+
+            console.log(document.querySelector('#dialog-modal > div').appendChild(Form));
+
+            btnYES.addEventListener('click', () => {
+                Form.action = '/products/' + idSlug + '?_method=PUT';
+                Form.submit();
+            });
+        });
+    }
+</script>

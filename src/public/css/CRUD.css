@@ -1,44 +1,48 @@
-.crud-product{
-    outline: none;
+.crud-product {
+  outline: none;
 }
 
-.dialog-modal{
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity linear 0.4s;
+#dialog-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity linear 0.4s;
 }
 
-.dialog-modal:target{
-    visibility: visible;
-    opacity: 1;
+#dialog-modal:target {
+  visibility: visible;
+  opacity: 1;
 }
 
-.dialog-modal-body{
-    height: 300px;
-    width: 300px;
-    background-color: tomato;
-    position: relative;
+.dialog-modal-body {
+  height: 300px;
+  width: 300px;
+  background-color: tomato;
+  position: relative;
 }
 
-.dialog-modal-close{
-    position: absolute;
-    top: 3px;
-    right: 6px;
-    font-size: 20px;
+.dialog-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  font-size: 20px;
 }
 
-.dialog-modal-close-out{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: default;
+#delete-products-comfirm {
+  cursor: pointer;
+}
+
+.dialog-modal-close-out {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: default;
 }

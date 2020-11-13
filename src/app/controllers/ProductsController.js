@@ -6,7 +6,10 @@ class ProductsController {
     CRUDProduct(req, res, next) {
         Product.find({})
             .then(products => {
-                res.render('products/create-update-delete', { products: multipleMongooseToObject(products) });
+                res.render('products/create-update-delete', { 
+                    products: multipleMongooseToObject(products),
+                    style: ['CRUD.css']
+                });
             })
             .catch(next);
     }
@@ -39,15 +42,23 @@ class ProductsController {
             .catch(next);
     }
 
+    //[delete] /products/delete/:id
+    deleteProduct(req, res, next) {
+        Product.deleteOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/products/create-update-delete'))
+            .catch(next);
+    }
+
     //[GET] /products/:slug
     showProduct(req, res, next) {
         Product.findOne({ slug: req.params.slug })
             .then(product => {
-                res.send('chi tiet san pham');
+                res.render('products/detail', {
+                    product: mongooseToObject(product),
+                    style: ['detailProduct.css']
+                });
             })
-            .catch(next => {
-                console.log("err");
-            });
+            .catch(next);
     }
 }
 
