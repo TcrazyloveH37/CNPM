@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const methodOverride = require('method-override');
+const cookiePraser = require('cookie-parser');
 // My dependencies
 const route = require('./routes/indexRouter');
 const db = require('./config/db/index');
@@ -18,10 +19,12 @@ const hbs = exphbs.create({
     sum: (a, b) => a + b
   }
 });
-app.use("/", express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use("/products", express.static(path.join(__dirname, '/public')));
 app.use("/profile", express.static(path.join(__dirname, '/public')));
 app.use("/products/edit", express.static(path.join(__dirname, '/public')));
+app.use("/login", express.static(path.join(__dirname, '/public')));
+app.use("/sign-up", express.static(path.resolve(__dirname + '/public')));
 //----------------------------------------------------------------
 // HTTP logger
 //app.use(morgan("combined"));
@@ -30,6 +33,7 @@ app.use("/products/edit", express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
+app.use(cookiePraser());
 //----------------------------------------------------------------
 // Template engine
 app.engine('handlebars', hbs.engine);

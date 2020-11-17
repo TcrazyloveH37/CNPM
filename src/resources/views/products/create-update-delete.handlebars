@@ -58,6 +58,7 @@
     for (let i = 0; i < arrDelete.length; i++) {
         arrDelete[i].addEventListener('click', () => {
             idSlug = arrDelete[i].getAttribute('data-id');
+            Form.innerHTML = '';
             btnYES.addEventListener('click', () => {
                 Form.action = '/products/' + idSlug + '?_method=DELETE';
                 Form.submit();

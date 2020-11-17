@@ -1,4 +1,4 @@
-const Account = require('../models/Account');
+const User = require('../models/User');
 const { multipleMongooseToObject } = require('../../util/mongoose');
 
 class ProfileController {
