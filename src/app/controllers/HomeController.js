@@ -4,9 +4,9 @@ const { multipleMongooseToObject } = require('../../util/mongoose');
 class HomeController {
   // [get], /
   index(req, res, next) {
-    Product.find({})
+    Product.find()
       .then(products => {
-        res.render('home', { products: multipleMongooseToObject(products) , style: ['home.css']});
+        res.render('home', { products: multipleMongooseToObject(products), style: ['home.css'] });
       })
       .catch(next);
   }

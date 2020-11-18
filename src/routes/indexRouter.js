@@ -4,6 +4,7 @@ const profileRouter = require('./profileRouter');
 const signupRouter = require('./signupRouter');
 const loginRouter = require('./loginRouter');
 const logoutRouter = require('./logoutRouter');
+const trashRouter = require('./trashRouter');
 const { requireAuth, checkUser } = require('../app/middleware/authMiddleware');
 
 function route(app) {
@@ -11,6 +12,8 @@ function route(app) {
   app.get('*', checkUser);
 
   app.use('/products', productsRouter);
+
+  app.use('/trash', trashRouter);
 
   app.use('/profile', profileRouter);
 

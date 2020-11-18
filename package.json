@@ -26,6 +26,7 @@
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.9",
+    "mongoose-delete": "^0.5.2",
     "mongoose-slug-generator": "^1.0.4",
     "validator": "^13.1.17"
   },
