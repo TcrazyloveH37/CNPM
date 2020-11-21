@@ -39,8 +39,13 @@ const handleErrors = (err) => {
 
 const maxAge = 3 * 24 * 60 * 60;
 
-const createToken = (id, isEmployee) => {
-    return jwt.sign({ id }, 'key of huy', {
+const createToken = (id, admin) => {
+    if (admin) {
+        return jwt.sign({ id }, 'key of admin', {
+            expiresIn: maxAge,
+        });
+    }
+    return jwt.sign({ id }, 'key of user', {
         expiresIn: maxAge,
     });
 }
@@ -58,7 +63,7 @@ class LoginController {
         try {
             const user = await User.login(email, password);
 
-            const token = createToken(user._id);
+            const token = createToken(user._id, user.admin);
             res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
             res.status(201).json({ user: user._id });
         } catch (err) {

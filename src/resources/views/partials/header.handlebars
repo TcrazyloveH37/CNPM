@@ -6,9 +6,9 @@
         <ul>
             <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Trang Chủ</a></li>
             <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Giỏ Hàng</a></li>
-            {{#if user.email}}
+            {{#if user.name}}
                 <li class="nav-drop-down">
-                    <a class="navbar-user"><i class="fa fa-user" aria-hidden="true">{{user.email}}</i></a>
+                    <a class="navbar-user"><i class="fa fa-user" aria-hidden="true">{{user.name}}</i></a>
                     <ul>
                         <li> <a href="#"><i class="fa fa-clipboard"></i> Đơn Hàng </a></li>
                         <li> <a href="/profile/id" target="_blank"><i class="fa fa-address-book"></i> Tài Khoản </a></li>

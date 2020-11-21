@@ -14,6 +14,27 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please enter a password'],
         minlength: [6, 'Minimum password length is 6 characters'],
+    },
+    name: {
+        type: String,
+        required: [true, 'Please enter a name'],
+    },
+    address: {
+        type: String,
+        required: [true, 'Please enter an address'],
+    },
+    phone: {
+        type: String,
+        minlength: [10, 'phone length is 10 numbers'],
+        maxlength: [10, 'phone length is 10 numbers'],
+        required: [true, 'Please enter a phone'],
+    },
+    gender: {
+        type: String,
+    },
+    admin: {
+        type: Boolean,
+        default: false,
     }
 });
 
@@ -21,7 +42,6 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
-    this.isEmployee = true;
     next();
 });
 
