@@ -5,15 +5,18 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: [true, 'Please enter an email'],
         unique: true,
         lowercase: true,
-        validate: [isEmail, 'Please enter a valid email']
     },
     password: {
         type: String,
-        required: [true, 'Please enter a password'],
-        minlength: [6, 'Minimum password length is 6 characters'],
+    },
+    name: {
+        type: String,
+    },
+    admin: {
+        type: Boolean,
+        default: false,
     }
 });
 
@@ -21,7 +24,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
-    this.isEmployee = true;
+    //this.admin = true;
     next();
 });
 
@@ -29,6 +32,13 @@ userSchema.pre('save', async function (next) {
 // userSchema.post('save', function (doc, next) {
 //     // console.log('new user was created $ saved', doc);
 
+//     next();
+// });
+
+// fire a function before doc updateOne to db
+// userSchema.pre('updateOne', async function (next) {
+//     const salt = await bcrypt.genSalt();
+//     this.password = await bcrypt.hash(this.password, salt);
 //     next();
 // });
 

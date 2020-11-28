@@ -1,16 +1,25 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Product = require('../models/Product');
+const { multipleMongooseToObject } = require('../../util/mongoose');
 
 const requireAuth = (req, res, next) => {
 
     const token = req.cookies.jwt
     // check json web token exists & is verified
     if (token) {
-        jwt.verify(token, 'key of huy', (err, decodedToken) => {
+        jwt.verify(token, 'key of user', (err, decodedToken) => {
             if (err) {
-                res.redirect('/login');
+                jwt.verify(token, 'key of admin', (err2, decodedToken2) => {
+                    if (err2) {
+                        console.log(decodedToken2);
+                        res.redirect('/404');
+
+                    } else {
+                        next();
+                    }
+                });
             } else {
-                console.log(decodedToken);
                 next();
             }
         });
@@ -26,15 +35,28 @@ const checkUser = (req, res, next) => {
 
 
     if (token) {
-        jwt.verify(token, 'key of huy', async (err, decodedToken) => {
+        jwt.verify(token, 'key of user', async (err, decodedToken) => {
             if (err) {
-                console.log(err);
-                res.locals.user = null;
-                next();
+                jwt.verify(token, 'key of admin', async (err2, decodedToken2) => {
+                    if (err2) {
+                        console.log(err2);
+                        res.locals.user = null;
+                        next();
+                    }
+                    else {
+                        let user = await User.findById(decodedToken2.id);
+                        let temp = Object.create(user);
+                        temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
+                        res.locals.user = temp.toObject();
+                        next();
+                    }
+                });
             }
             else {
                 let user = await User.findById(decodedToken.id);
-                res.locals.user = user.toObject();
+                let temp = Object.create(user);
+                temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
+                res.locals.user = temp.toObject();
                 next();
             }
         });
@@ -45,4 +67,44 @@ const checkUser = (req, res, next) => {
     }
 }
 
-module.exports = { requireAuth, checkUser };
+
+const checkLoginSignup = (req, res, next) => {
+
+    const token = req.cookies.jwt;
+    // check json web token exists & is verified
+    if (token) {
+        res.redirect('/');
+    }
+    else {
+        next();
+    }
+}
+
+const requireAuthAdmin = (req, res, next) => {
+
+    const token = req.cookies.jwt
+    // check json web token exists & is verified
+    if (token) {
+        jwt.verify(token, 'key of user', (err, decodedToken) => {
+            if (err) {
+                jwt.verify(token, 'key of admin', (err2, decodedToken2) => {
+                    if (err2) {
+                        console.log(decodedToken2);
+                        res.redirect('/404');
+
+                    } else {
+                        next();
+                    }
+                });
+            } else {
+                next();
+            }
+        });
+    }
+    else {
+        res.redirect('/404');
+    }
+}
+
+
+module.exports = { requireAuth, checkUser, checkLoginSignup, requireAuthAdmin };

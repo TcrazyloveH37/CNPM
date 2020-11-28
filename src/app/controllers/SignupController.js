@@ -39,29 +39,38 @@ const handleErrors = (err) => {
 
 const maxAge = 3 * 24 * 60 * 60;
 
-const createToken = (id, isEmployee) => {
-    return jwt.sign({ id }, 'key of huy', {
+const createToken = (id, admin) => {
+    if (admin) {
+        return jwt.sign({ id }, 'key of admin', {
+            expiresIn: maxAge,
+        });
+    }
+    return jwt.sign({ id }, 'key of user', {
         expiresIn: maxAge,
     });
 }
 
 class SignupController {
-    // [get], /login
+    // [get], /signup
 
     index(req, res, next) {
         res.render('signup', { style: ['signup-login.css'], js: ['signup.js'] });
     }
 
+
+
+    // [post], /signup
     post = async (req, res) => {
-        const { email, password } = req.body;
+        const { email, password, name} = req.body;
 
         try {
-            const user = await User.create({ email, password });
-            const token = createToken(user._id);
+            const user = await User.create({ email, password, name });
+            const token = createToken(user._id, false);
             res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
             res.status(201).json({ user: user._id });
         }
         catch (err) {
+            console.log(err);
             const errors = handleErrors(err);
             res.status(400).json({ errors });
         }
