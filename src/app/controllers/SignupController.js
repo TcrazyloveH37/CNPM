@@ -40,7 +40,6 @@ const handleErrors = (err) => {
 const maxAge = 3 * 24 * 60 * 60;
 
 const createToken = (id, admin) => {
-    console.log(admin);
     if (admin) {
         return jwt.sign({ id }, 'key of admin', {
             expiresIn: maxAge,
@@ -62,10 +61,10 @@ class SignupController {
 
     // [post], /signup
     post = async (req, res) => {
-        const { email, password, name, address, phone, gender } = req.body;
+        const { email, password, name} = req.body;
 
         try {
-            const user = await User.create({ email, password, name, address, phone, gender });
+            const user = await User.create({ email, password, name });
             const token = createToken(user._id, false);
             res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
             res.status(201).json({ user: user._id });

@@ -7,7 +7,7 @@ const logoutRouter = require('./logoutRouter');
 const trashRouter = require('./trashRouter');
 const orderRouter = require('./orderRouter');
 const productStatusRouter = require('./product-statusRouter');
-const { checkUser } = require('../app/middleware/authMiddleware');
+const { checkUser, checkLoginSignup } = require('../app/middleware/authMiddleware');
 
 function route(app) {
 

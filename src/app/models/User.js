@@ -5,31 +5,13 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
-        required: [true, 'Please enter an email'],
         unique: true,
         lowercase: true,
-        validate: [isEmail, 'Please enter a valid email']
     },
     password: {
         type: String,
-        required: [true, 'Please enter a password'],
-        minlength: [6, 'Minimum password length is 6 characters'],
     },
     name: {
-        type: String,
-        required: [true, 'Please enter a name'],
-    },
-    address: {
-        type: String,
-        required: [true, 'Please enter an address'],
-    },
-    phone: {
-        type: String,
-        minlength: [10, 'phone length is 10 numbers'],
-        maxlength: [10, 'phone length is 10 numbers'],
-        required: [true, 'Please enter a phone'],
-    },
-    gender: {
         type: String,
     },
     admin: {
@@ -42,6 +24,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
+    //this.admin = true;
     next();
 });
 
@@ -53,11 +36,11 @@ userSchema.pre('save', async function (next) {
 // });
 
 // fire a function before doc updateOne to db
-userSchema.pre('updateOne', async function (next) {
-    const salt = await bcrypt.genSalt();
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-});
+// userSchema.pre('updateOne', async function (next) {
+//     const salt = await bcrypt.genSalt();
+//     this.password = await bcrypt.hash(this.password, salt);
+//     next();
+// });
 
 // static method to login user
 userSchema.statics.login = async function (email, password) {

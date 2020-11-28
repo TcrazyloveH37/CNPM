@@ -6,7 +6,7 @@ const profileController = require('../app/controllers/ProfileController');
 
 
 // [get] profile/:id
-router.get('/:id', profileController.index);
+router.get('/:id', requireAuth, profileController.index);
 
 // [patch]/:id
 router.patch('/:id', profileController.updateProfile);

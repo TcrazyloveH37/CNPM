@@ -1,24 +1,25 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Product = require('../models/Product');
+const { multipleMongooseToObject } = require('../../util/mongoose');
 
 const requireAuth = (req, res, next) => {
 
     const token = req.cookies.jwt
     // check json web token exists & is verified
     if (token) {
-        jwt.verify(token, 'key of huy', (err, decodedToken) => {
+        jwt.verify(token, 'key of user', (err, decodedToken) => {
             if (err) {
-                jwt.verify(token, 'key of admin', (err, decodedToken) => {
-                    if (err) {
+                jwt.verify(token, 'key of admin', (err2, decodedToken2) => {
+                    if (err2) {
+                        console.log(decodedToken2);
                         res.redirect('/404');
 
                     } else {
-                        console.log(decodedToken);
                         next();
                     }
                 });
             } else {
-                console.log(decodedToken);
                 next();
             }
         });
@@ -66,4 +67,44 @@ const checkUser = (req, res, next) => {
     }
 }
 
-module.exports = { requireAuth, checkUser };
+
+const checkLoginSignup = (req, res, next) => {
+
+    const token = req.cookies.jwt;
+    // check json web token exists & is verified
+    if (token) {
+        res.redirect('/');
+    }
+    else {
+        next();
+    }
+}
+
+const requireAuthAdmin = (req, res, next) => {
+
+    const token = req.cookies.jwt
+    // check json web token exists & is verified
+    if (token) {
+        jwt.verify(token, 'key of user', (err, decodedToken) => {
+            if (err) {
+                jwt.verify(token, 'key of admin', (err2, decodedToken2) => {
+                    if (err2) {
+                        console.log(decodedToken2);
+                        res.redirect('/404');
+
+                    } else {
+                        next();
+                    }
+                });
+            } else {
+                next();
+            }
+        });
+    }
+    else {
+        res.redirect('/404');
+    }
+}
+
+
+module.exports = { requireAuth, checkUser, checkLoginSignup, requireAuthAdmin };
