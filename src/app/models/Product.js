@@ -18,6 +18,7 @@ const Product = new Schema({
     // required: true
   },
   price: { type: Number, default: 5000, required: true },
+  amount: { type: Number, default: 1, require: true }, 
   slug: { type: String, slug: "name", unique: true },
 }, {
   timestamps: true

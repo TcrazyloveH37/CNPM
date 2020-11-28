@@ -45,18 +45,18 @@ const checkUser = (req, res, next) => {
                     }
                     else {
                         let user = await User.findById(decodedToken2.id);
-                        let temp = Object.create(user);
-                        temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
-                        res.locals.user = temp.toObject();
+                        // let temp = Object.create(user);
+                        // temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
+                        res.locals.user = user.toObject();
                         next();
                     }
                 });
             }
             else {
                 let user = await User.findById(decodedToken.id);
-                let temp = Object.create(user);
-                temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
-                res.locals.user = temp.toObject();
+                // let temp = Object.create(user);
+                // temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
+                res.locals.user = user.toObject();
                 next();
             }
         });
@@ -85,17 +85,31 @@ const requireAuthAdmin = (req, res, next) => {
     const token = req.cookies.jwt
     // check json web token exists & is verified
     if (token) {
-        jwt.verify(token, 'key of user', (err, decodedToken) => {
-            if (err) {
-                jwt.verify(token, 'key of admin', (err2, decodedToken2) => {
-                    if (err2) {
-                        console.log(decodedToken2);
-                        res.redirect('/404');
+        jwt.verify(token, 'key of admin', (err2, decodedToken2) => {
+            if (err2) {
+                console.log(decodedToken2);
+                res.redirect('/404');
 
-                    } else {
-                        next();
-                    }
-                });
+            } else {
+                next();
+            }
+        });
+    }
+    else {
+        res.redirect('/404');
+    }
+}
+
+const requireAuthUser = (req, res, next) => {
+
+    const token = req.cookies.jwt
+    // check json web token exists & is verified
+    if (token) {
+        jwt.verify(token, 'key of user', (err2, decodedToken) => {
+            if (err2) {
+                console.log(decodedToken);
+                res.redirect('/404');
+
             } else {
                 next();
             }
@@ -107,4 +121,4 @@ const requireAuthAdmin = (req, res, next) => {
 }
 
 
-module.exports = { requireAuth, checkUser, checkLoginSignup, requireAuthAdmin };
+module.exports = { requireAuth, checkUser, checkLoginSignup, requireAuthAdmin, requireAuthUser };

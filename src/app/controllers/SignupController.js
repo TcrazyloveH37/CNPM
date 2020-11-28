@@ -61,7 +61,7 @@ class SignupController {
 
     // [post], /signup
     post = async (req, res) => {
-        const { email, password, name} = req.body;
+        const { email, password, name } = req.body;
 
         try {
             const user = await User.create({ email, password, name });
