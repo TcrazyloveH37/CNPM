@@ -25,6 +25,8 @@ app.use("/profile", express.static(path.join(__dirname, '/public')));
 app.use("/products/edit", express.static(path.join(__dirname, '/public')));
 app.use("/login", express.static(path.join(__dirname, '/public')));
 app.use("/sign-up", express.static(path.resolve(__dirname + '/public')));
+app.use("/order", express.static(path.join(__dirname, '/public')));
+app.use("/product-status", express.static(path.join(__dirname, '/public')));
 //----------------------------------------------------------------
 // HTTP logger
 //app.use(morgan("combined"));

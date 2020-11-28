@@ -10,7 +10,7 @@ const requireAuth = (req, res, next) => {
             if (err) {
                 jwt.verify(token, 'key of admin', (err, decodedToken) => {
                     if (err) {
-                        res.redirect('/login');
+                        res.redirect('/404');
 
                     } else {
                         console.log(decodedToken);
@@ -48,12 +48,10 @@ const checkUser = (req, res, next) => {
                         temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
                         res.locals.user = temp.toObject();
                         next();
-                        console.log('admin');
                     }
                 });
             }
             else {
-                console.log('user');
                 let user = await User.findById(decodedToken.id);
                 let temp = Object.create(user);
                 temp.name = temp.name.substr(temp.name.lastIndexOf(" "));
