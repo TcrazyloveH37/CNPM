@@ -1,35 +1,30 @@
 <main>
-    <form action="POST" method="">
-        <h2>Sign Up</h2>
-        <label for="email">email</label>
-        <input type="text" name="email" required />
-        <div class="email error"></div>
-
-        <label for="password">password</label>
-        <input type="password" name="password" required />
-        <div class="password error"></div>
-
-        <label for="name">name</label>
-        <input type="text" name="name" required />
-        <div class="name error"></div>
-
-        <label for="address">address</label>
-        <input type="text" name="address" required />
-        <div class="address error"></div>
-
-        <label for="phone">phone</label>
-        <input type="text" name="phone" required />
-        <div class="phone error"></div>
-
-
-        <div class="gender">
-            <label for="male">male</label>
-            <input type="radio" id="male" name="gender" value="male" checked="checked">
-            <label for="female">female</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <div class="gender error"></div>
+    <form action="/sign-up" method="POST" class="form" id="form_sign_up">
+        <h3 class="heading"> ĐĂNG KÝ </h3>
+        <div class="spacer"></div>
+        <div class="form-group">
+            <label for="fullname" class="form-label">Tên đầy đủ</label>
+            <input id="fullname" name="fullname" type="text" placeholder="VD: Đăng Khoa" class="form-control">
+            <span class="form-message"></span>
         </div>
 
-        <button>Sign up</button>
+        <div class="form-group">
+            <label for="email" class="form-label">E-mail</label>
+            <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+            <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+            <input id="password_confirmation" name="password_confirmation" type="password" placeholder="Nhập lại mật khẩu" class="form-control">
+            <span class="form-message"></span>
+        </div>
+        <button class="form-submit">Đăng ký</button>
     </form>
 </main>
