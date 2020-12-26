@@ -74,7 +74,8 @@ class ProductsController {
             .then(product => {
                 res.render('products/detail', {
                     product: mongooseToObject(product),
-                    style: ['products/detailProduct.css']
+                    style: ['products/detailProduct.css'],
+                    js:['detailProduct.js']
                 });
             })
             .catch(next);
