@@ -5,6 +5,7 @@
 // const addressError = document.querySelector("form > .address");
 // const phoneError = document.querySelector("form > .phone");
 
+
 // form.addEventListener("submit", async (e) => {
 //     e.preventDefault();
 
@@ -89,6 +90,26 @@ function Validator(options) {
 
   let formElement = document.querySelector(options.form);
 
+const form = document.querySelector("form");
+const emailError = document.querySelector("form > .email");
+const passwordError = document.querySelector("form > .password");
+const nameError = document.querySelector("form > .name");
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // reset errors
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    nameError.textContent = '';
+
+    //get the values;
+    const email = form.email.value;
+    const password = form.password.value;
+    const name = form.name.value;
+    
+
+
   if (formElement) {
     // Khi submit form
     formElement.onsubmit = function (e) {
@@ -106,7 +127,9 @@ function Validator(options) {
         let password = document.getElementById('password');
         const res = await fetch("/sign-up", {
             method: "POST",
+
             body: JSON.stringify({ name, email, password }),
+
             headers: { "Content-Type": "application/json" },
         });
       }
@@ -114,6 +137,7 @@ function Validator(options) {
         console.log(document.getElementsByClassName('invalid').length);
       }
     };
+
 
     //Lap qua tung rule va xu ly su kien: blur, input,...
     options.rules.forEach(function (rule) {
@@ -210,4 +234,19 @@ Validator({
       'Mật khẩu nhập lại không chính xác.',
     ),
   ],
+
+        const data = await res.json();
+
+        if (data.errors) {
+            emailError.textContent = data.errors.email;
+            passwordError.textContent = data.errors.password;
+            nameError.textContent = data.errors.name;
+        }
+        if (data.user) {
+            location.assign('/');
+        }
+    } catch (err) {
+        console.log(err);
+    }
 });
+
