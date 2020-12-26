@@ -4,7 +4,6 @@ const { requireAuth } = require('../app/middleware/authMiddleware');
 
 const profileController = require('../app/controllers/ProfileController');
 
-
 // [get] profile/:id
 router.get('/:id', requireAuth, profileController.index);
 
