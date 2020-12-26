@@ -58,7 +58,7 @@
 //         console.log(err);
 //     }
 // });
-
+let countError = 0;
 function Validator(options) {
   let selectorRules = {};
 
@@ -98,6 +98,21 @@ function Validator(options) {
         let inputElement = formElement.querySelector(rule.selector);
         validate(inputElement, rule);
       });
+
+      if(document.getElementsByClassName('invalid').length === 0){
+        // formElement.submit();
+        let name = document.getElementById('fullname');
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+        const res = await fetch("/sign-up", {
+            method: "POST",
+            body: JSON.stringify({ name, email, password }),
+            headers: { "Content-Type": "application/json" },
+        });
+      }
+      else{
+        console.log(document.getElementsByClassName('invalid').length);
+      }
     };
 
     //Lap qua tung rule va xu ly su kien: blur, input,...
