@@ -7,6 +7,7 @@ const logoutRouter = require('./logoutRouter');
 const trashRouter = require('./trashRouter');
 const orderRouter = require('./orderRouter');
 const productStatusRouter = require('./product-statusRouter');
+const cartRouter = require('./cartRouter');
 const { checkUser, checkLoginSignup } = require('../app/middleware/authMiddleware');
 
 function route(app) {
@@ -26,6 +27,8 @@ function route(app) {
   app.use('/logout', logoutRouter);
 
   app.use('/order', orderRouter);
+
+  app.use('/cart', cartRouter);
 
   app.use('/product-status', productStatusRouter);
 
