@@ -97,6 +97,24 @@
   background-color: #1ac7b6;
 }
 
+.form-login{
+  outline: none;
+  background-color: #1dbfaf;
+  margin-top: 12px;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  width: 100%;
+  font-size: 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-login:hover{
+  background-color: #1ac7b6;
+}
+
 .spacer{
   margin-top: 36px;
 }
