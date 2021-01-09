@@ -65,7 +65,7 @@ class LoginController {
 
             const token = createToken(user._id, user.admin);
             res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
-            res.status(201).json({ user: user._id });
+            res.redirect('/');
         } catch (err) {
             const errors = handleErrors(err);
             res.status(400).json({ errors });

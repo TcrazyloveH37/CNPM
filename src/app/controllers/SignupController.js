@@ -59,13 +59,19 @@ class SignupController {
 
   // [post], /signup
   post = async (req, res) => {
-    const { email, password, name } = req.body;
+    const { email, password, fullname } = req.body;
+    console.log(email, password, fullname);
 
     try {
-      const user = await User.create({ email, password, name });
-      const token = createToken(user._id, false);
+      const user = await User.create({ email, password, fullname });
+
+      let bool = false;
+      if(email === 'admin@gmail.com')
+        bool = true;
+
+      const token = createToken(user._id, bool);
       res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
-      res.status(201).json({ user: user._id });
+      res.redirect('/');
     } catch (err) {
       console.log(err);
       const errors = handleErrors(err);

@@ -1,13 +1,12 @@
 <main>
-
-    <form action="/profile" method="POST" class="form" id="form_profile">
+    <form action="/profile/{{profile._id}}?_method=PUT" method="POST" class="form" id="form_profile">
         <h3 class="heading"> CHỈNH SỬA </h3>
         <h3 class="heading"> TÀI KHOẢN </h3>
         <div class="spacer"></div>
         <h3>Tài khoản: <i>{{profile.email}}</i></h3>
         <div class="form-group">
             <label for="fullname" class="form-label">Tên đầy đủ</label>
-            <input id="fullname" name="fullname" type="text" value={{profile.name}} class="form-control">
+            <input id="fullname" name="fullname" type="text" value="{{profile.name}}" class="form-control">
             <span class="form-message"></span>
         </div>
 

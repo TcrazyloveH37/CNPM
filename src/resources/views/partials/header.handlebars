@@ -6,9 +6,9 @@
         <ul>
             <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Trang Chủ</a></li>
             
-            {{#if user.name}}
+            {{#if user.fullname}}
             <li class="nav-drop-down">
-                <a class="navbar-user"><i class="fa fa-user" aria-hidden="true">{{user.name}}</i></a>
+                <a class="navbar-user"><i class="fa fa-user" aria-hidden="true">{{user.fullname}}</i></a>
                 <ul>
 
                     <li> <a href="/profile/{{user._id}}" target="_blank"><i class="fa fa-address-book"></i> Tài

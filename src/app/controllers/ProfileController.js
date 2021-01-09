@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const { multipleMongooseToObject, mongooseToObject } = require('../../util/mongoose');
+const bcrypt = require('bcrypt');
+
 
 class ProfileController {
     // [get], /:id
@@ -12,27 +14,19 @@ class ProfileController {
             .catch(next);
     }
 
-    updateProfile(req, res, next) {
 
-        // console.log(req.body);
-        // User.findById({ _id: req.params.id })
-        //     .then((user) => {
-        //         let query = { $set: {} };
-        //         for (let key in req.body)
-        //             if (user[key] && req.body[key] &&user[key] !== req.body[key])
-        //                 query.$set[key] = req.body[key];
-        //         console.log(query);
-        //         try {
-        //             User.updateOne({ _id: req.params.id }, query)
-        //                 .then(() => res.redirect('/profile/' + user._id));
-        //         }
-        //         catch (err) {
-        //             console.log(err);
-        //         }
+    updateProfile = async (req, res) => {
 
-        //     })
-        //     .catch(next);
-    }
+        try {
+            const salt = await bcrypt.genSalt();
+            req.body.password = await bcrypt.hash(req.body.password, salt);
+            const user = await User.updateOne({ _id: req.params.id }, req.body);
+            res.redirect('/');
+        } catch (err) {
+            console.log(err);
+            res.status(400).json({ err });
+        }
+    };
 }
 
 module.exports = new ProfileController();
