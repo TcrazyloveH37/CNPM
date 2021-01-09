@@ -66,7 +66,7 @@ class SignupController {
       const user = await User.create({ email, password, fullname });
 
       let bool = false;
-      if(email === 'admin@gmail.com')
+      if (email === 'admin@gmail.com')
         bool = true;
 
       const token = createToken(user._id, bool);
@@ -74,13 +74,16 @@ class SignupController {
 
       if ((req.cookies.cart) !== undefined) {
         let cart = JSON.parse(req.cookies.cart);
+        console.log(cart)
         for (let item of cart) {
           let obj = {};
           obj[item] = 1;
           user.cart.push(obj);
+          console.log(user.cart)
         }
-        await User.updateOne({ _id: user._id }, { cart });
+        await User.updateOne({ _id: user._id }, { cart: user.cart });
       }
+
       res.cookie('cart', '', { maxAge: 1 });
       res.redirect('/');
     } catch (err) {

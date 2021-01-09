@@ -68,6 +68,7 @@ class LoginController {
             if ((req.cookies.cart) !== undefined) {
                 if (user.cart.length !== 0) {
                     let cart = JSON.parse(req.cookies.cart);
+                    console.log(cart)
                     for (let item of cart) {
                         if (user.cart.some(c => c[item] !== undefined) === false) {
                             let obj = {};
@@ -85,7 +86,6 @@ class LoginController {
                         user.cart.push(obj);
                     }
                 }
-                console.log(user.cart);
                 await User.updateOne({ _id: user._id }, { cart: user.cart });
             }
 
