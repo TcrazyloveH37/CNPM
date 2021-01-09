@@ -13,10 +13,12 @@
             <h4 class="home-card-name-price-price">{{this.price}}$</h4>
         </a>
         <div class="home-card-status">
-            <button class="home-btn-cart">
-                <span>Add To Cart</span>
-                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
-            </button>
+            <form action="/add-to-cart/{{this.slug}}" method="POST">
+                <button class="home-btn-cart">
+                    <span>Add To Cart</span>
+                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                </button>
+            </form>
         </div>
     </div>
 

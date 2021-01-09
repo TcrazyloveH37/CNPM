@@ -74,7 +74,7 @@ section.img-background{
   background-image: linear-gradient(125deg, #f3e0f6 0%, #fff 80%);
 }
 
-.home-card-status > .home-btn-cart {
+.home-card-status  .home-btn-cart {
   width: 200px;
   height: 40px;
   cursor: pointer;
@@ -89,7 +89,7 @@ section.img-background{
   font-weight: bolder;
 }
 
-.home-card-status > .home-btn-cart >  .fa {
+.home-card-status  .home-btn-cart >  .fa {
   position: absolute;
   margin-left: 90px;
   column-fill: transparent;
@@ -98,29 +98,29 @@ section.img-background{
   visibility: hidden;
 }
 
-.home-card-status > .home-btn-cart > span {
+.home-card-status  .home-btn-cart > span {
   transition: 0.4s;
 }
 
-.home-card-status > .home-btn-cart:hover > span {
-  margin-right: 30px;
+.home-card-status  .home-btn-cart:hover > span {
+  margin-right: 50px;
 }
 
-.home-card-status > .home-btn-cart:hover > .fa {
+.home-card-status  .home-btn-cart:hover > .fa {
   margin-left: 45px;
   column-fill: white;
   color: black;
   visibility: visible;
 }
 
-.home-card-status > .home-btn-cart:hover  .fa:hover {
+.home-card-status  .home-btn-cart:hover  .fa:hover {
   transform: scale(1.2);
 }
 
-.home-card-status > .home-btn-cart:hover  .fa:active {
+.home-card-status  .home-btn-cart:hover  .fa:active {
   transform: scale(0.9);
 }
 
-.home-card-status > .home-btn-cart:focus {
+.home-card-status  .home-btn-cart:focus {
   outline: none;
 }

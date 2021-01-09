@@ -19,7 +19,7 @@
                         
                         <li> <a href="/products/create-update-delete"><i class="fa fa-clipboard"></i> Sản Phẩm </a></li>
                     {{else}}
-                        <li> <a href="/product-status/{{user._id}}"><i class="fa fa-clipboard"></i> Giỏ Hàng </a></li>
+                        <li> <a href="/product-status/{{user._id}}"><i class="fa fa-clipboard"></i> Giỏ Hàng({{user.cart.length}}) </a></li>
                     {{/if}}
 
                     <li> <a href="/logout"><i class="fa fa-outdent"></i> Đăng Xuất</a> </li>

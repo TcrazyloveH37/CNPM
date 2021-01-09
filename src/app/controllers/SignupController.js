@@ -71,6 +71,17 @@ class SignupController {
 
       const token = createToken(user._id, bool);
       res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
+
+      if ((req.cookies.cart) !== undefined) {
+        let cart = JSON.parse(req.cookies.cart);
+        for (let item of cart) {
+          let obj = {};
+          obj[item] = 1;
+          user.cart.push(obj);
+        }
+        await User.updateOne({ _id: user._id }, { cart });
+      }
+      res.cookie('cart', '', { maxAge: 1 });
       res.redirect('/');
     } catch (err) {
       console.log(err);

@@ -59,12 +59,37 @@ class LoginController {
 
     post = async (req, res, next) => {
         const { email, password } = req.body;
-
         try {
             const user = await User.login(email, password);
-
             const token = createToken(user._id, user.admin);
             res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
+
+
+            if ((req.cookies.cart) !== undefined) {
+                if (user.cart.length !== 0) {
+                    let cart = JSON.parse(req.cookies.cart);
+                    for (let item of cart) {
+                        if (user.cart.some(c => c[item] !== undefined) === false) {
+                            let obj = {};
+                            obj[item] = 1;
+                            user.cart.push(obj);
+                        }
+                    }
+
+                }
+                else {
+                    let cart = JSON.parse(req.cookies.cart);
+                    for (let item of cart) {
+                        let obj = {};
+                        obj[item] = 1;
+                        user.cart.push(obj);
+                    }
+                }
+                console.log(user.cart);
+                await User.updateOne({ _id: user._id }, { cart: user.cart });
+            }
+
+            res.cookie('cart', '', { maxAge: 1 });
             res.redirect('/');
         } catch (err) {
             const errors = handleErrors(err);
