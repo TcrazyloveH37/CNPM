@@ -9,13 +9,11 @@ const orderRouter = require('./orderRouter');
 const productStatusRouter = require('./product-statusRouter');
 
 const _404Router = require('./404');
+
 const {
   checkUser,
   checkLoginSignup,
 } = require('../app/middleware/authMiddleware');
-
-const { checkUser, checkLoginSignup } = require('../app/middleware/authMiddleware');
-
 
 function route(app) {
   app.get('*', checkUser);

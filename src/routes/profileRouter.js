@@ -8,6 +8,6 @@ const profileController = require('../app/controllers/ProfileController');
 router.get('/:id', requireAuth, profileController.index);
 
 // [patch]/:id
-router.patch('/:id', profileController.updateProfile);
+router.put('/:id', profileController.updateProfile);
 
 module.exports = router;

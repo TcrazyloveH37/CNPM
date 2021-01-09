@@ -40,19 +40,9 @@ const handleErrors = (err) => {
 const maxAge = 3 * 24 * 60 * 60;
 
 const createToken = (id, admin) => {
-
   if (admin) {
     return jwt.sign({ id }, 'key of admin', {
       expiresIn: maxAge,
-
-    if (admin) {
-        return jwt.sign({ id }, 'key of admin', {
-            expiresIn: maxAge,
-        });
-    }
-    return jwt.sign({ id }, 'key of user', {
-        expiresIn: maxAge,
-
     });
   }
   return jwt.sign({ id }, 'key of user', {
@@ -61,7 +51,6 @@ const createToken = (id, admin) => {
 };
 
 class SignupController {
-
   // [get], /signup
 
   index(req, res, next) {
@@ -70,43 +59,23 @@ class SignupController {
 
   // [post], /signup
   post = async (req, res) => {
-    const { email, password, name } = req.body;
+    const { email, password, fullname } = req.body;
+    console.log(email, password, fullname);
 
     try {
-      const user = await User.create({ email, password, name });
-      const token = createToken(user._id, false);
+      const user = await User.create({ email, password, fullname });
+
+      let bool = false;
+      if(email === 'admin@gmail.com')
+        bool = true;
+
+      const token = createToken(user._id, bool);
       res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
-      res.status(201).json({ user: user._id });
+      res.redirect('/');
     } catch (err) {
       console.log(err);
       const errors = handleErrors(err);
       res.status(400).json({ errors });
-
-    // [get], /signup
-
-    index(req, res, next) {
-        res.render('signup', { style: ['signup-login.css'], js: ['signup.js'] });
-    }
-
-
-
-    // [post], /signup
-    post = async (req, res) => {
-        const { email, password, name} = req.body;
-
-        try {
-            const user = await User.create({ email, password, name });
-            const token = createToken(user._id, false);
-            res.cookie('jwt', token, { httpOnly: true, maxAge: 1000 * maxAge });
-            res.status(201).json({ user: user._id });
-        }
-        catch (err) {
-            console.log(err);
-            const errors = handleErrors(err);
-            res.status(400).json({ errors });
-        }
-
-
     }
   };
 }
