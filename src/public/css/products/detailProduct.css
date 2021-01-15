@@ -1,3 +1,112 @@
-body{
-    background-color: thistle;
+main {
+    margin: 100px 0px;
+  }
+  
+  form h2 {
+    font-size: 2.4em;
+    font-weight: 900;
+    margin-bottom: 40px;
+  }
+  form {
+    width: 360px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: white;
+  }
+ 
+ 
+  
+  
+  
+  form .gender {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+.HinhAnhChiTiet{
+    background-size: cover;
+    width: 360px;
+}
+
+
+.container {
+    padding: 0 16px;
+}
+
+.container::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.detailProduct-card-status {
+  height: 40px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(125deg, #f3e0f6 0%, #fff 80%);
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart {
+  width: 360px;
+  height: 40px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fdbb2d;
+  color: black;
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart >  .fa {
+  position: absolute;
+  margin-left: 90px;
+  column-fill: transparent;
+  transition: 0.4s;
+  color: transparent;
+  visibility: hidden;
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart > span {
+  transition: 0.4s;
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart:hover > span {
+  margin-right: 30px;
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart:hover > .fa {
+  margin-left: 45px;
+  column-fill: white;
+  color: black;
+  visibility: visible;
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart:hover  .fa:hover {
+  transform: scale(1.2);
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart:hover  .fa:active {
+  transform: scale(0.9);
+}
+
+.detailProduct-card-status > .detailProduct-btn-cart:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
 }

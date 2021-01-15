@@ -1,9 +1,34 @@
-<h1>{{product._id}}</h1>
-<h1>{{product.name}}</h1>
-<h1>{{product.description}}</h1>
-<h1><a href="{{product.image}}" target="_blank">link image</a></h1>
-<h1>{{product.price}}</h1>
-<h1>{{product.createdAt}}</h1>
-<h1>{{product.updatedAt}}</h1>
-<h1>{{product.slug}}</h1>
-<h1>{{product.__v}}</h1>
+
+<main>
+
+    <form action="">
+        <h2>About Product</h2>
+            
+                <center><img class="HinhAnhChiTiet" src="{{product.image}}"/></center>
+                <div class="container">
+                    <div>ID sản phẩm: {{product._id}}</div>
+                    <div>Tên sản phẩm: {{product.name}}</div>
+                    <p class="title">Mô tả sản phẩm: {{product.description}}</p>
+                    <div>Giá sản phẩm: {{product.price}}</div>
+                    <div>Ngày đăng: {{product.createdAt}}</div>
+                    <div>Ngày cập nhật: {{product.updatedAt}}</div>
+                    <div>Người đăng: {{product.slug}}
+                    <div>Số lượng còn lại: {{product.__v}}</div>
+                    
+                </div>
+                <div class="detailProduct-card-status">
+                    <form action="/add-to-cart/{{this.slug}}" method="POST">
+                        <button class="detailProduct-btn-cart">
+                        <span>Add To Cart</span>
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    
+        </div>
+    </form>    
+    
+    
+</main>
+
+
+

@@ -1,0 +1,97 @@
+main {
+    margin: 100px 0px;
+  }
+  
+  #dialog-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity linear 0.4s;
+  }
+  
+  #dialog-modal:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .dialog-modal-body {
+    height: 300px;
+    width: 300px;
+    background-color: tomato;
+    position: relative;
+  }
+  
+  .dialog-modal-close {
+    position: absolute;
+    top: 3px;
+    right: 6px;
+    font-size: 20px;
+  }
+  
+  #delete-products-comfirm {
+    cursor: pointer;
+  }
+  
+  .dialog-modal-close-out {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+  }
+  form h2 {
+    font-size: 2.4em;
+    font-weight: 900;
+    
+    margin-bottom: 40px;
+  }
+  form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: white;
+  }
+  
+  
+  
+  
+  
+  form .gender {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+  }
+  .HinhAnhChiTiet{
+    background-size: cover;
+    width: 200px;
+  }
+  
+  table, th, td{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+  }
+  table{
+    border-collapse:collapse;
+    width:100%;
+    height:300px;
+    text-align:center;
+  }
+  tr:hover{
+    background-color:#ddd;
+    cursor:pointer;
+  }

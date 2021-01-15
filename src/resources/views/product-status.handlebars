@@ -1,1 +1,57 @@
-<h1>Đơn Đặt Hàng</h1>
+
+<main >
+    
+        
+    <form action="">
+    
+    
+    <h2>Sản Phẩm Của Tôi</h2>
+    
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Price</th>
+            
+        </tr>
+        {{#each products}}
+        <tr class="{{this._id}}">
+            <td>{{sum @index 1}}</td>
+            <td> <center><img class="HinhAnhChiTiet" src="{{this.image}}"/></center></td>
+            <td>{{this.name}}</td>
+            <td class="Tinh-So-Luong" >{{this.amount}}</td>
+            <td class="Tinh-So-Tien">{{this.price}}</td>
+            
+        </tr>
+
+        {{else}}
+        <tr>
+            <td colspan="6">Bạn Chưa Đăng Sản Phẩm Học Nào. </td>
+        </tr>
+        {{/each}}
+        <tr style="height:50px">
+            <th >Tổng cộng</th>
+            <th> </th>
+            <th> </th>
+            <th> </th>
+            <th class ="Tong-Gia-Tien">  </th>
+            
+        </tr>
+    </table>
+
+    </form>
+    
+</main>
+
+<div id="dialog-modal">
+    <a href="#" class="dialog-modal-close-out"></a>
+    <div class="dialog-modal-body">
+        <a class="dialog-modal-close fa fa-times-circle" href="#"></a>
+        <h3>Mày Muốn xóa</h3>
+        <a href="#">NO</a>
+        <a id="delete-products-comfirm">YES</a>
+    </div>
+</div>
+
