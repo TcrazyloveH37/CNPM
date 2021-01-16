@@ -2,30 +2,27 @@ main {
     margin: 100px 0px;
   }
   
-  form h2 {
-    font-size: 2.4em;
-    font-weight: 900;
-    margin-bottom: 40px;
-  }
-  form {
+  
+  .Form {
     width: 360px;
     margin: 0 auto;
     padding: 30px;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background: white;
+    
   }
  
  
   
   
   
-  form .gender {
+  Form .gender {
     display: flex;
     justify-content: space-between;
   }
   
-.HinhAnhChiTiet{
+  .HinhAnhChiTiet{
     background-size: cover;
     width: 360px;
 }
