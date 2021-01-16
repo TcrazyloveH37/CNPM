@@ -1,7 +1,6 @@
 
 <main>
-
-    <form action="">
+    <div class="Form">
         <h2>About Product</h2>
             
                 <center><img class="HinhAnhChiTiet" src="{{product.image}}"/></center>
@@ -16,17 +15,16 @@
                     <div>Số lượng còn lại: {{product.__v}}</div>
                     
                 </div>
+
                 <div class="detailProduct-card-status">
-                    <form action="/add-to-cart/{{this.slug}}" method="POST">
+                    <form action="/add-to-cart/{{product.slug}}" method="POST">
                         <button class="detailProduct-btn-cart">
-                        <span>Add To Cart</span>
-                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                            <span>Add To Cart</span>
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i>
                         </button>
                     </form>
-                    
-        </div>
-    </form>    
-    
+                </div>
+   </div>
     
 </main>
 
