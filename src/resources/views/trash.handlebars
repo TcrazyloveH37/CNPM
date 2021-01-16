@@ -1,11 +1,14 @@
 <main class="crud-product">
 
     <div>
-        <h2>Sản Phẩm Đã Xóa</h2>
+        <h1 class="deleted-product">Sản Phẩm Đã Xóa</h1>
+    </div>
+    <div class="turnback">
         <a href="/products/create-update-delete">Quay Lại</a>
     </div>
 
-    <table>
+    <table class="deleted-product-table">
+        <thead>
         <tr>
             <th>STT</th>
             <th>Name</th>
@@ -13,7 +16,10 @@
             <th>Image</th>
             <th>Price</th>
         </tr>
+        </thead>
+
         {{#each products}}
+        <tbody>
         <tr class="{{this._id}}">
             <td>{{sum @index 1}}</td>
             <td>{{this.name}}</td>
@@ -21,15 +27,16 @@
             <td><img src="{{this.image}}" alt="" style="height: 30px; width:30px;"></td>
             <td>{{this.price}}</td>
             <td>
-                <a href="#dialog-modal" data-id="{{this._id}}" class="get-id-edit">Khoi Phuc</a>
+                <a href="#dialog-modal" data-id="{{this._id}}" class="get-id-edit">Khôi Phục</a>
                 <a href="#dialog-modal" data-id="{{this._id}}" class="get-id-delete">Xóa Vĩnh Viễn</a>
             </td>
         </tr>
         {{else}}
         <tr>
-            <td colspan="6">Thùng Rác Trống. <a href="/products/create-update-delete">Danh Sách Khóa Học</a> </td>
+            <td colspan="6">Thùng Rác Trống! </td>
         </tr>
         {{/each}}
+        </tbody>
     </table>
 
 
@@ -39,9 +46,12 @@
     <a href="#" class="dialog-modal-close-out"></a>
     <div class="dialog-modal-body">
         <a class="dialog-modal-close fa fa-times-circle" href="#"></a>
-        <h3>Mày Muốn Khôi Phục</h3>
-        <a href="#">NO</a>
-        <a id="restore-products-comfirm">YES</a>
+        <div class="notice"><h3>Bạn muốn khôi phục?</h3></div>
+        <div class="answer">
+            <a href="#">NO</a>
+            <a id="delete-products-comfirm">YES</a>
+        </div>
+        
     </div>
 </div>
 

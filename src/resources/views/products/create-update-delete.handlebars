@@ -1,32 +1,103 @@
+
+<div id="dialog-modal">
+    <a href="#" class="dialog-modal-close-out"></a>
+    <div class="dialog-modal-body">
+        <a class="dialog-modal-close fa fa-times-circle" href="#" style=" font-size: 20px; color: rgb(97, 4, 4);"></a>
+        <div class="notice"><h3>Bạn muốn xóa</h3></div>
+        <div class="answer">
+            <a href="#">NO</a>
+            <a id="delete-products-comfirm">YES</a>
+        </div>
+    </div>
+</div>
+
+
+<form name="delete-product-form" method="POST"></form>
+
+
 <main class="crud-product">
-    <div class="add-product">
-        <form action="/products/store" method="POST" style="margin-top: 100px;">
-            <input type="text" name="name" id="">
-            <input type="text" name="description" id="">
-            <input type="text" name="image" id="">
-            <input type="text" name="price" id="">
-            <button type="submit">Them San Pham</button>
-        </form>
+    <div class="main">
+
+      <form action="/products/store" method="POST">
+        <div class="add-product-header">
+            <h3 class="heading-add-product">Thêm sản phẩm</h3>
+
+            <div class="spacer"></div>
+        </div>
+
+
+        <div class="add-product-body">
+            <div class="form-group">
+                <label for="name" class="form-label">Tên sản phẩm</label>
+                <input id="name" name="name" type="text" placeholder="VD: Chuột XYZ" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="price" class="form-label">Giá (VNĐ)</label>
+                <input id="price" name="price" type="text" placeholder="VD: 5000" class="form-control">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+            <label for="image" class="form-label">Hình ảnh</label>
+            <input id="image" name="image" type="text" placeholder="Link hình ảnh " class="form-control">
+            <span class="form-message"></span>
+            </div>
+
+            <div class="form-group">
+            <label for="amount" class="form-label">Số lượng</label>
+            <input id="amount" name="amount" type="text" placeholder="VD: 1" class="form-control">
+            <span class="form-message"></span>
+            </div>
+        </div>
+
+        <div class="add-product-button">
+            <div class="add-product-textarea">
+                <div class="form-group">
+                <label for="description" class="form-label">Mô tả</label>
+                <textarea id="description" name="description" type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                <span class="form-message"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="form-submit" id="delete-products-comfirm">Thêm</button>
+        </div>
+
+
+
+
+
+      </form>
+
+
     </div>
+
+
+
     <div>
-        <h2>Sản Phẩm Của Tôi</h2>
-        <a href="/trash">Thùng Rác {{deletedCount}}</a>
+        <h1 class="heading-my-product">Sản Phẩm Của Tôi</h1>
+           
     </div>
-    <table>
+    <div class="trash"><a href="/trash">Thùng Rác:</a> {{deletedCount}}</div>
+    <table class="product-table">
+        <thead>
         <tr>
             <th>STT</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Price</th>
+            <th>Tên</th>
+            <th>Mô tả</th>
+            <th>Hình ảnh</th>
+            <th>Giá</th>
         </tr>
+        </thead>
         {{#each products}}
+        <tbody>
         <tr class="{{this._id}}">
             <td>{{sum @index 1}}</td>
             <td>{{this.name}}</td>
             <td>{{this.description}}</td>
-            <td><img src="{{this.image}}" alt="" style="height: 30px; width:30px;"></td>
-            <td>{{this.price}}</td>
+            <td><img src="{{this.image}}" alt="" style="height: 50px; width:80px;"></td>
+            <td>{{this.price}}$</td>
             <td>
                 <a href="#dialog-modal" data-id="{{this._id}}" class="get-id-edit">Sửa</a>
                 <a href="#dialog-modal" data-id="{{this._id}}" class="get-id-delete">Xóa</a>
@@ -37,20 +108,9 @@
             <td colspan="6">Bạn Chưa Đăng Sản Phẩm Học Nào. </td>
         </tr>
         {{/each}}
+       </tbody>
     </table>
 
 
 </main>
 
-<div id="dialog-modal">
-    <a href="#" class="dialog-modal-close-out"></a>
-    <div class="dialog-modal-body">
-        <a class="dialog-modal-close fa fa-times-circle" href="#"></a>
-        <h3>Mày Muốn xóa</h3>
-        <a href="#">NO</a>
-        <a id="delete-products-comfirm">YES</a>
-    </div>
-</div>
-
-
-<form name="delete-product-form" method="POST"></form>

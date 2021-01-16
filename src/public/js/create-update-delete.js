@@ -2,7 +2,10 @@ let arrDelete = document.querySelectorAll("table tr > td > .get-id-delete");
 let arrEdit = document.querySelectorAll("table tr > td > .get-id-edit");
 let Form = document.forms['delete-product-form'];
 let btnYES = document.getElementById('delete-products-comfirm');
+
 let idSlug;
+
+
 
 for (let i = 0; i < arrDelete.length; i++) {
     arrDelete[i].addEventListener('click', () => {
@@ -39,10 +42,12 @@ for (let i = 0; i < arrDelete.length; i++) {
         Form.appendChild(price);
 
         console.log(document.querySelector('#dialog-modal > div').appendChild(Form));
-
+           
         btnYES.addEventListener('click', () => {
             Form.action = '/products/' + idSlug + '?_method=PUT';
             Form.submit();
         });
     });
 }
+
+
